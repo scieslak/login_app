@@ -5,7 +5,7 @@ class UserTest < ActiveSupport::TestCase
   def setup
     @user = users(:one)
     @another_user = users(:two)
-    # @user.password = 'password'
+    @user.password = 'password'
   end
 
 
@@ -118,6 +118,30 @@ class UserTest < ActiveSupport::TestCase
     @user.save
     @another_user.email = @user.email
     assert_not @another_user.valid?
+  end
+
+  # Password validations tests
+
+  test "password should have minimum 6 characters" do
+    @user.password = "p" * 5
+    assert_not @user.valid?
+  end
+
+  test "matching paswword and confirmation should be valid" do
+    @user.password = @user.password_confirmation = "password"
+    assert @user.valid?
+  end
+
+  test "not matching password and confirmation should not be valid" do
+    @user.password = "password"
+    @user.password_confirmation = "PASSWORD"
+    assert_not @user.valid?
+  end
+  
+  test "password without confirmaton should be not valid" do
+      @user.password = "password"
+      @user.password_confirmation =""
+      assert_not @user.valid?
   end
 
 
