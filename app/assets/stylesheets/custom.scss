@@ -22,13 +22,17 @@ body {
 
 }
 
+#main {
+  margin-bottom: 10rem;
+}
+
 p {
   font-size: 1.5em;
 }
 
 pre {
   font-size: 1em;
-  margin-top: 10em;
+  margin-top: 2em;
 }
 
 input {
@@ -58,6 +62,20 @@ button {
  border-bottom: 1px solid #00ff69;
  width: 100%;
  margin: 2rem 0rem;
+}
+
+.list-with-fa {
+  font-size: 2em;
+}
+
+table.profile-content td {
+  font-size: 1.5em;
+  padding: 1rem;
+  vertical-align: top;
+  &.profile-table-label{
+    text-align: right;
+
+  }
 }
 
 
