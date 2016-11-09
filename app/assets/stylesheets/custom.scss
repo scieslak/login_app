@@ -59,3 +59,21 @@ button {
  width: 100%;
  margin: 2rem 0rem;
 }
+
+
+// Footer
+
+.footer-center {
+  background-color: #00ff69;
+  width:inherit;
+  position: fixed;
+  bottom: 0;
+
+}
+
+nav#footer {
+  text-align: center;
+  ul li {
+    display: inline-block;
+  }
+}

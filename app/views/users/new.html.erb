@@ -1,2 +1,40 @@
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
+
+<%= form_for @user do |f| %>
+
+<div class="fafix">
+  <p>
+    <%= f.label :username, "USERNAME:" %>
+  </p>
+  <i class="fa fa-user fa-fw fa-3x"></i>
+  <%= f.text_field :username %>
+</div>
+
+<div class="fafix">
+  <p>
+    <%= f.label :email, "EMAIL:" %>
+  </p>
+  <i class="fa fa-envelope fa-fw fa-3x"></i>
+  <%= f.email_field :email %>
+</div>
+
+<div class="fafix">
+  <p>
+    <%= f.label :password, "PASSWORD:" %>
+  </p>
+  <i class="fa fa-lock fa-fw fa-3x"></i>
+  <%= f.password_field :password %>
+</div>
+
+<div class="fafix">
+  <p>
+    <%= f.label :password_confirmation, "PASSWORD CONFIRMATION:" %>
+  </p>
+  <i class="fa fa-lock fa-fw fa-3x"></i>
+  <%= f.password_field :password_confirmation %>
+</div>
+
+<%= f.button ("<i class=\"fa fa-sign-in fa-2x\"></i> LOG IN").html_safe, type: "submit" %>
+
+<% end %>
