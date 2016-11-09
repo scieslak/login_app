@@ -41,7 +41,7 @@ input {
   border-radius: 0px;
   border: none;
   padding: .5rem;
-  width: 80%;
+  width: 70%;
   outline: none;
 }
 
@@ -62,7 +62,18 @@ button {
  border-bottom: 1px solid #00ff69;
  width: 100%;
  margin: 2rem 0rem;
+
 }
+
+.field_with_errors {
+  background-color: #F45336;
+  padding: 0.1rem;
+}
+
+.error-fa {
+  color: #F45336;
+}
+
 
 .list-with-fa {
   font-size: 2em;

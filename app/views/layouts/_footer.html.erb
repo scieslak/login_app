@@ -2,8 +2,14 @@
   <div class="col-md-10 col-md-offset-1">
     <nav id="footer">
       <ul>
-        <li><%= link_to "REGISTER", new_user_path %></li>
         <li><%= link_to "HOME", root_path %></li>
+        <li><%= link_to "LOG IN", "#" %></li>
+        <li><%= link_to "REGISTER", new_user_path %></li>
+        <% unless @user.nil? || @user.new_record? %>
+        <li><%= link_to "PROFILE", user_path(@user) %></li>
+        <li><%= link_to "EDIT PROFILE",  edit_user_path(@user) %></li>
+        <li><%= link_to "DELETE", delete_user_path(@user) %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
