@@ -17,13 +17,30 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-
   end
 
   def edit
+    @user = User.find_by_id(params[:id])
+  end
+
+  def update
+    @user = User.find_by_id(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to @user
+    else
+      render 'edit'
+    end
+
   end
 
   def delete
+    @user = User.find_by_id(params[:id])
+  end
+
+  def destroy
+    @user = User.find_by_id(params[:id])
+    @user.destroy
+    redirect_to root_path
   end
 
   private

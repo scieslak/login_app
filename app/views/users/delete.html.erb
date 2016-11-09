@@ -1,2 +1,15 @@
-<h1>Users#delete</h1>
-<p>Find me in app/views/users/delete.html.erb</p>
+<pre>
+██████╗ ███████╗██╗     ███████╗████████╗███████╗██╗
+██╔══██╗██╔════╝██║     ██╔════╝╚══██╔══╝██╔════╝██║
+██║  ██║█████╗  ██║     █████╗     ██║   █████╗  ██║
+██║  ██║██╔══╝  ██║     ██╔══╝     ██║   ██╔══╝  ╚═╝
+██████╔╝███████╗███████╗███████╗   ██║   ███████╗██╗
+╚═════╝ ╚══════╝╚══════╝╚══════╝   ╚═╝   ╚══════╝╚═╝
+</pre>
+
+<p>
+  AREY YOU SURE YOU WANT TO PERMANENTLY DELETE YOUR PROFILE?
+</p>
+<%= form_tag @user, method: :delete do %>
+<%= button_tag ("<i class=\"fa fa-trash fa-2x\"></i> DELETE").html_safe, type: "submit" %>
+<% end %>

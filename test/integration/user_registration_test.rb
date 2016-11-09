@@ -27,7 +27,7 @@ class UserRegistrationTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "can not register with valid information" do
+  test "can register with valid information" do
     assert_difference "User.count", 1 do
     post users_path, params: {
                       user: {
@@ -37,13 +37,36 @@ class UserRegistrationTest < ActionDispatch::IntegrationTest
                         password_confirmation: @newuser.password
                       }
     }
+    end
     assert_response :redirect
     follow_redirect!
     assert_response :success
     assert_template :show
-    assert_select "p", @newuser.username
+    assert_select "td", @newuser.username
   end
 
+  test "can not register with invalid information" do
+    assert_no_difference "User.count" do
+    post users_path, params: {
+                      user: {
+                        username: @newuser.username,
+                        email: "wrong@email",
+                        password: @newuser.password,
+                        password_confirmation: @newuser.password
+                      }
+    }
+    end
+
+    assert_template :new
+    assert_select "form[method=post][action=?]", users_path do
+      assert_select "input" do
+        assert_select "[type=text][name=?]", "user[username]"
+        assert_select "[type=email][name=?]", "user[email]"
+        assert_select "[type=password][name=?]", "user[password]"
+        assert_select "[type=password][name=?]", "user[password_confirmation]"
+      end
+      assert_select "button[type=submit]"
+    end
   end
 
 
