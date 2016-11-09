@@ -1,0 +1,43 @@
+<%= form_for @user do |f| %>
+
+<div class="fafix">
+<p>
+  <%= f.label :username, "USERNAME:" %>
+  <%= display_form_error(f.object, :username) %>
+</p>
+
+  <i class="fa fa-user fa-fw fa-3x"></i>
+  <%= f.text_field :username %>
+</div>
+
+<div class="fafix">
+  <p>
+    <%= f.label :email, "EMAIL:" %>
+    <%# Displays first error for the field (see /helpers/users_helpers.rb ) %>
+    <%= display_form_error(f.object, :email) %>
+  </p>
+  <i class="fa fa-envelope fa-fw fa-3x"></i>
+  <%= f.email_field :email %>
+</div>
+
+<div class="fafix">
+  <p>
+    <%= f.label :password, "PASSWORD:" %>
+    <%= display_form_error(f.object, :password) %>
+  </p>
+  <i class="fa fa-lock fa-fw fa-3x"></i>
+  <%= f.password_field :password %>
+</div>
+
+<div class="fafix">
+  <p>
+    <%= f.label :password_confirmation, "PASSWORD CONFIRMATION:" %>
+    <%= display_form_error(f.object, :password_confirmation) %>
+  </p>
+  <i class="fa fa-lock fa-fw fa-3x"></i>
+  <%= f.password_field :password_confirmation %>
+</div>
+
+<%= f.button (submit_fa + submit_button).html_safe, type: "submit" %>
+
+<% end %>
