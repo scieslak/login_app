@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
+
+  before_action :authorized_user, except: [:index, :new, :create]
+
   def index
+    @users = User.all
   end
 
   def show
@@ -13,6 +17,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in(@user)
       flash[:success] = "Profile created succesfully!"
       redirect_to @user
     else
@@ -44,6 +49,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find_by_id(params[:id])
     @user.destroy
+    log_out
     flash[:success] = "Profile destroyed succesfully!"
     redirect_to root_path
   end
@@ -51,6 +57,24 @@ class UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:username, :email, :password, :password_confirmation)
-
     end
+
+
+    def authorized_user
+      if !logged_in?
+        flash[:error] = "ACCESS DENIED! PLEASE LOG IN!"
+        redirect_to login_path
+
+      elsif params[:id].to_i != current_user.id
+        flash[:error] = "ACCESS DENIED! NO PERMITION TO ACCES THIS PROFILE"
+        redirect_to root_path
+      end
+    end
+
+    # def authorized_user
+    #   unless params[:id] == current_user.id
+    #     flash[:error] = "ACCESS DENIED! PLEASE LOG IN!"
+    #     redirect_to login_path
+    #   end
+    # end
 end

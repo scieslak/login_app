@@ -4,12 +4,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_username(params[:username])
-    user ||= User.find_by_email(params[:username])
+    user = User.find_by_username(params[:user])
+    user ||= User.find_by_email(params[:user])
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      flash[:success] = "I have been succesfully logged in."
+      flash[:success] = "You have been succesfully logged in."
       redirect_to user
     else
       flash.now[:error] = "Invalid username or email/password combination!"
@@ -17,12 +17,9 @@ class SessionsController < ApplicationController
     end
   end
 
-
   def destroy
-    session[:user_id] = nil
-    reset_session
+    log_out
     flash[:success] = "You have been succesfully logged out."
     redirect_to root_path
-
   end
 end
