@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      flash[:success] = "I have been logged in!"
+      flash[:success] = "I have been succesfully logged in!"
       redirect_to user
     else
       flash.now[:error] = "Invalid username or email/password combination!"
