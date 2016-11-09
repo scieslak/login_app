@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=VT323');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background: rgba(18,63,39,1);/* Old Browsers */
+  background: -moz-radial-gradient(center, ellipse cover, rgba(18,63,39,1) 0%, rgba(11,19,15,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(18,63,39,1)), color-stop(100%, rgba(11,19,15,1)));/* Chrome, Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(18,63,39,1) 0%, rgba(11,19,15,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover, rgba(18,63,39,1) 0%, rgba(11,19,15,1) 100%); /* Opera 11.10+ */
+  background: -ms-radial-gradient(center, ellipse cover, rgba(18,63,39,1) 0%, rgba(11,19,15,1) 100%); /* IE 10+ */
+  background: radial-gradient(ellipse at center, rgba(18,63,39,1) 0%, rgba(11,19,15,1) 100%);/* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#123f27', endColorstr='#0b130f', GradientType=1 );/* IE6-9 fallback on horizontal gradient */
+  background-attachment: fixed;
+  // font-family: 'VT323', monospace;
+  font-family: 'Press Start 2P', cursive;
+  color: #00FF69;
+
+}
+
+p {
+  font-size: 1.5em;
+}
+
+pre {
+  font-size: 1em;
+  margin-top: 10em;
+}
+
+input {
+  font-size: 1.5em;
+  background: transparent;
+  border-radius: 0px;
+  border: none;
+  padding: .5rem;
+  width: 80%;
+  outline: none;
+}
+
+button {
+  font-size: 1.5em;
+  background-color:  #00FF69;
+  color: #0B130F;
+  border-radius: 0px;
+  border: none;
+  border-bottom: 1px solid #00FF69;
+  padding: .5rem;
+  width: 100%;
+  margin: 1rem 0;
+  outline: none;
+}
+
+.fafix {
+ border-bottom: 1px solid #00ff69;
+ width: 100%;
+ margin: 2rem 0rem;
+}
