@@ -89,6 +89,22 @@ table.profile-content td {
   }
 }
 
+// flash
+
+#flash-container {
+  width: 100%;
+  font-size: 0.7em;
+  text-align: center;
+  padding: .2rem;
+  &.flash-success {
+    background-color: #00ff69;
+    color: #0B130F;
+  }
+  &.flash-error {
+    background-color: #F45336;
+  }
+}
+
 
 // Footer
 
