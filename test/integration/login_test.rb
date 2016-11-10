@@ -16,22 +16,24 @@ class LoginTest < ActionDispatch::IntegrationTest
   end
 
   test "can log in with valid username and password" do
-    post_login_form(@user.username, @user.password)
+    post_login_form(@user)
     assert_login_success(@user)
   end
 
   test "can log in with valid email and password" do
-    post_login_form(@user.email, @user.password)
+    post_login_form(@user)
     assert_login_success(@user)
   end
 
   test "can not log in with invalid username or email" do
-    post_login_form("wrongName", @user.password)
+    @user.username = "wrongName"
+    post_login_form(@user)
     assert_login_fail(@user)
   end
 
   test "can not log in with invalid password" do
-    post_login_form(@user.email, "wrongPassword")
+    @user.password = "wrongPassword"
+    post_login_form(@user)
     assert_login_fail(@user)
   end
 

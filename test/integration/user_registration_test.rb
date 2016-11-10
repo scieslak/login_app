@@ -16,27 +16,12 @@ class UserRegistrationTest < ActionDispatch::IntegrationTest
 
     get new_user_path
     assert_response :success
-    assert_select "form[method=post][action=?]", users_path do
-      assert_select "input" do
-        assert_select "[type=text][name=?]", "user[username]"
-        assert_select "[type=email][name=?]", "user[email]"
-        assert_select "[type=password][name=?]", "user[password]"
-        assert_select "[type=password][name=?]", "user[password_confirmation]"
-      end
-      assert_select "button[type=submit]"
-    end
+    assert_user_form_sound("REGISTER")
   end
 
   test "can register with valid information" do
     assert_difference "User.count", 1 do
-    post users_path, params: {
-                      user: {
-                        username: @newuser.username,
-                        email: @newuser.email,
-                        password: @newuser.password,
-                        password_confirmation: @newuser.password
-                      }
-    }
+      post_user_form(@newuser)
     end
     assert_response :redirect
     follow_redirect!
@@ -47,26 +32,11 @@ class UserRegistrationTest < ActionDispatch::IntegrationTest
 
   test "can not register with invalid information" do
     assert_no_difference "User.count" do
-    post users_path, params: {
-                      user: {
-                        username: @newuser.username,
-                        email: "wrong@email",
-                        password: @newuser.password,
-                        password_confirmation: @newuser.password
-                      }
-    }
+      post_user_form(@newuser, :fail)
     end
 
     assert_template :new
-    assert_select "form[method=post][action=?]", users_path do
-      assert_select "input" do
-        assert_select "[type=text][name=?]", "user[username]"
-        assert_select "[type=email][name=?]", "user[email]"
-        assert_select "[type=password][name=?]", "user[password]"
-        assert_select "[type=password][name=?]", "user[password_confirmation]"
-      end
-      assert_select "button[type=submit]"
-    end
+    assert_user_form_sound("REGISTER")
   end
 
 
