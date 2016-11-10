@@ -18,7 +18,7 @@ class UserShowTest < ActionDispatch::IntegrationTest
     assert_select "div.flash-error"
   end
 
-  test "logged in user can not view only own profile" do
+  test "logged in user can view only own profile" do
 
     # Logs in and redirect to own profile page.
     assert_logged_in(@user)
