@@ -1,3 +1,6 @@
 language: ruby
 rvm:
   - 2.3.1
+
+before_script:
+  - psql -c "CREATE USER pguser WITH PASSWORD 'pgpass';" -U postgres
