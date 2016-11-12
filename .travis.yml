@@ -2,7 +2,9 @@ language: ruby
 rvm:
   - 2.3.1
 
-before_script:
+addons:
+    code_climate:
+        repo_token: 4a8a36e6da7e93715f9c2ea5ffa2118ef41ca6add217ba889356bc37a942d25d
 
 script:
     - RAILS_ENV=test bundle exec rake db:schema:load --trace
