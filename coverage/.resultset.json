@@ -612,39 +612,6 @@
         1,
         null
       ],
-      "/home/scieslak/Workspace/portfolio/login_app/app/controllers/sessions_controller.rb": [
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        11,
-        11,
-        null,
-        11,
-        9,
-        9,
-        9,
-        null,
-        2,
-        2,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/home/scieslak/Workspace/portfolio/login_app/app/controllers/application_controller.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
       "/home/scieslak/Workspace/portfolio/login_app/app/controllers/users_controller.rb": [
         1,
         null,
@@ -726,8 +693,41 @@
         null,
         null,
         null
+      ],
+      "/home/scieslak/Workspace/portfolio/login_app/app/controllers/application_controller.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/home/scieslak/Workspace/portfolio/login_app/app/controllers/sessions_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        11,
+        11,
+        null,
+        11,
+        9,
+        9,
+        9,
+        null,
+        2,
+        2,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1478965006
+    "timestamp": 1478974440
   }
 }
