@@ -3,6 +3,8 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require "minitest/reporters"
 Minitest::Reporters.use!
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
 
 require "helpers/session_test_helper"
 require "helpers/user_test_helper"

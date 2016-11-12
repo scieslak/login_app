@@ -22,6 +22,7 @@ group :development, :test do
   gem 'guard-minitest',             '2.4.6'
   gem 'minitest-reporters',         '1.1.12'
   gem 'rails-controller-testing',   '1.0.1'
+  gem "codeclimate-test-reporter",   require: nil
 end
 
 group :development do
