@@ -1,13 +1,13 @@
 require 'simplecov'
-SimpleCov.start 'rails'
+SimpleCov.start
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require "minitest/reporters"
 Minitest::Reporters.use!
-require 'simplecov'
-SimpleCov.start
+# require 'simplecov'
+# SimpleCov.start
 
 require "helpers/session_test_helper"
 require "helpers/user_test_helper"
