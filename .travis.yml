@@ -1,15 +1,10 @@
 language: ruby
 rvm:
-  - 2.3.1
-  - 2.4.0
-
-script:
-    - RAILS_ENV=test bundle exec rake db:schema:load --trace
-    - bundle exec rake test
+- 2.3.3
+services:
+  - postgresql
 before_script:
-    - psql -c "CREATE USER pguser WITH PASSWORD 'pgpass';" -U postgres
-    - psql -c 'CREATE DATABASE login_app_test' -U postgres
-
-addons:
-    code_climate:
-        repo_token: 4a8a36e6da7e93715f9c2ea5ffa2118ef41ca6add217ba889356bc37a942d25d
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.example config/database.yml
+script:
+  - bundle exec rails test
